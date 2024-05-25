@@ -3,6 +3,8 @@ import validator from "validator";
 import bcrypt from "bcrypt";
 
 export interface IUser {
+  firstName: string;
+  lastName: string;
   username: string;
   email: string;
   password: string;
@@ -10,6 +12,14 @@ export interface IUser {
 
 const userSchema = new mongoose.Schema<IUser>(
   {
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
     username: {
       type: String,
       required: true,
