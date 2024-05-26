@@ -1,3 +1,40 @@
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     User:
+ *       type: object
+ *       properties:
+ *         firstName:
+ *           type: string
+ *           description: user's first name
+ *           example: Jonh
+ *         lastName:
+ *           type: string
+ *           description: user's last name
+ *           example: Doe
+ *         username:
+ *           type: string
+ *           description: user's username
+ *           example: rodri_macedo
+ *         email:
+ *           type: string
+ *           description: user's email
+ *           example: rodri@gmail.com
+ *           format: email
+ *         password:
+ *           type: string
+ *           description: user's password
+ *           example: hags5&5gg
+ *           format: password
+ *       required:
+ *         - firstName
+ *         - lastName
+ *         - username
+ *         - email
+ *         - password
+ */
+
 import mongoose from "mongoose";
 import validator from "validator";
 import bcrypt from "bcrypt";

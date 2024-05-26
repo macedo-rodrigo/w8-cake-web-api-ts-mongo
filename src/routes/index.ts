@@ -1,14 +1,14 @@
-// import swaggerUiExpress from "swagger-ui-express";
-// import swaggerJsDoc from "swagger-jsdoc";
-//import { swaggerOptions } from "../swagger-options";
+import swaggerUiExpress from "swagger-ui-express";
+import swaggerJsDoc from "swagger-jsdoc";
+import { swaggerOptions } from "../swagger-options";
 import express, { type NextFunction, type Response, type Request, type ErrorRequestHandler } from "express";
 import { mongoConnect } from "../domain/repositories/mongo-repository";
 import { userRouter } from "./user.routes";
 
 export const configureRoutes = (app: any): any => {
   // Swagger
-  // const specs = swaggerJsDoc(swaggerOptions);
-  //app.use("/api-docs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
+  const specs = swaggerJsDoc(swaggerOptions);
+  app.use("/api-docs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 
   app.use(async (req: Request, res: Response, next: NextFunction) => {
     await mongoConnect();
@@ -18,7 +18,7 @@ export const configureRoutes = (app: any): any => {
   const router = express.Router();
   router.get("/", (req: Request, res: Response) => {
     res.send(`
-      <h3>Esta es la RAIZ de nuestra API.</h3>
+      <h3>Hey! This is the cake API.</h3>
     `);
   });
   router.get("*", (req: Request, res: Response) => {

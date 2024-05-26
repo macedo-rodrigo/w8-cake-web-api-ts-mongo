@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Node s16 W8 Cake Api",
+    "version": "1.0.0",
+    "description": "This is a simple CRUD API for a cake web",
+    "license": {
+      "name": "MIT",
+      "url": "http://mit.com"
+    },
+    "contact": {
+      "name": "Rodri Macedo",
+      "url": "https://github.com/macedo-rodrigo",
+      "email": "rodri@example.com"
+    }
+  },
+  "server": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "get": {
+        "summary": "Lists all the users",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Users list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/User"
+                      }
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/Pagination"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
